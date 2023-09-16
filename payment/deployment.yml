@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-deployment
+  labels:
+    app: payment-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: payment-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: payment-service
+      # Set pod's label
+      labels:
+        app: payment-service
+    spec:
+      containers:
+        - name: payment-service
+          image: akak640/payment-service

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: member-deployment
+  labels:
+    app: member-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: member-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: member-service
+      # Set pod's label
+      labels:
+        app: member-service
+    spec:
+      containers:
+        - name: member-service
+          image: akak640/member-service

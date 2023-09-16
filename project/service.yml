@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-service
+spec:
+  type: NodePort
+  ports:
+    - port: 8086
+      targetPort: 8086
+      nodePort: 30006
+  selector:
+    app: project-service

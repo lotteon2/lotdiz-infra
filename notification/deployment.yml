@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-deployment
+  labels:
+    app: notification-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: notification-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: notification-service
+      # Set pod's label
+      labels:
+        app: notification-service
+    spec:
+      containers:
+        - name: notification-service
+          image: akak640/notification-service

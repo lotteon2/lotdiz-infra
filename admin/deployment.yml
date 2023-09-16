@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-deployment
+  labels:
+    app: admin-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: admin-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: admin-service
+      # Set pod's label
+      labels:
+        app: admin-service
+    spec:
+      containers:
+        - name: admin-service
+          image: akak640/admin-service
