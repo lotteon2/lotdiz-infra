@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
         - name: apigateway-service
-          image: akak640/apigateway-service
+          image: akak640/lotdiz-apigateway-service

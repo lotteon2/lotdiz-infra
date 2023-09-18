@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
         - name: admin-service
-          image: akak640/admin-service
+          image: akak640/lotdiz-admin-service

@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: project-service
-          image: akak640/project-service
+          image: akak640/lotdiz-project-service
         - name: mysql
           image: mysql:8.0.34

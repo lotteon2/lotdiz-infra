@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
         - name: discovery-service
-          image: akak640/discovery-service
+          image: akak640/lotdiz-discovery-service

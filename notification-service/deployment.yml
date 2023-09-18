@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: notification-service
-          image: akak640/notification-service
+          image: akak640/lotdiz-notification-service
         - name: mysql
           image: mysql:8.0.34

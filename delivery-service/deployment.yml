@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: delivery-service
-          image: akak640/delivery-service
+          image: akak640/lotdiz-delivery-service
         - name: mysql
           image: mysql:8.0.34

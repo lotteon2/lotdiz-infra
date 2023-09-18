@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: member-service
-          image: akak640/member-service
+          image: akak640/lotdiz-member-service
         - name: mysql
           image: mysql:8.0.34

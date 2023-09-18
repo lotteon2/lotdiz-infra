@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: funding-service
-          image: akak640/funding-service
+          image: akak640/lotdiz-funding-service
         - name: mysql
           image: mysql:8.0.34

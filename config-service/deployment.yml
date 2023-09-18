@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
         - name: config-service
-          image: akak640/config-service
+          image: akak640/lotdiz-config-service
