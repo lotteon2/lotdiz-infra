@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discovery-deployment
+  labels:
+    app: discovery-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: discovery-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: discovery-service
+      # Set pod's label
+      labels:
+        app: discovery-service
+    spec:
+      containers:
+        - name: discovery-service
+          image: akak640/discovery-service

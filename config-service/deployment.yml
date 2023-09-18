@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-deployment
+  labels:
+    app: config-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: config-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: config-service
+      # Set pod's label
+      labels:
+        app: config-service
+    spec:
+      containers:
+        - name: config-service
+          image: akak640/config-service
