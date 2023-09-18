@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: admin-service
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 30000
+    - targetPort: 8080
+      port: 8080
   selector:
     app: admin-service

@@ -1,24 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project-deployment
+  name: funding-deployment
   labels:
-    app: project-deployment
+    app: funding-deployment
 spec:
   # Deployment Spec
   selector:
     # Match mapping pod's label
     matchLabels:
-      app: project-service
+      app: funding-service
   replicas: 2
   # Pod Spec
   template:
     metadata:
-      name: project-service
+      name: funding-service
       # Set pod's label
       labels:
-        app: project-service
+        app: funding-service
     spec:
       containers:
-        - name: project-service
-          image: akak640/project-service
+        - name: funding-service
+          image: akak640/funding-service
+        - name: mysql
+          image: mysql:8.0.34

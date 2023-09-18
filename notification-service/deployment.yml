@@ -22,3 +22,5 @@ spec:
       containers:
         - name: notification-service
           image: akak640/notification-service
+        - name: mysql
+          image: mysql:8.0.34

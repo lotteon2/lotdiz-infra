@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: payment-service
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 8085
-      targetPort: 8085
-      nodePort: 30005
+    - targetPort: 8085
+      port: 8085
   selector:
     app: payment-service

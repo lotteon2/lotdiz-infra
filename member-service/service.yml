@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: member-service
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 8083
-      targetPort: 8083
-      nodePort: 30003
+    - targetPort: 8083
+      port: 8083
   selector:
     app: member-service

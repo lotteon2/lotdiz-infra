@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: notification-service
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
-    - port: 8084
-      targetPort: 8084
-      nodePort: 30004
+    - targetPort: 8084
+      port: 8084
   selector:
     app: notification-service

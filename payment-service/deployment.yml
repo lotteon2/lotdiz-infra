@@ -22,3 +22,5 @@ spec:
       containers:
         - name: payment-service
           image: akak640/payment-service
+        - name: mysql
+          image: mysql:8.0.34
