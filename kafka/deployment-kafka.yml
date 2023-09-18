@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-deployment
+  labels:
+    app: kafka-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: kafka-service
+  replicas: 1
+  # Pod Spec
+  template:
+    metadata:
+      name: kafka-service
+      # Set pod's label
+      labels:
+        app: kafka-service
+    spec:
+      containers:
+        - name: kafka
+          image: wurstmeister/kafka
+          ports:
+            - containerPort: 9092
+          env:
+            - name: KAFKA_ADVERTISED_HOST_NAME
+              value: localhost
+            - name: KAFKA_CREATE_TOPICS
+              value: lotdiz:1:1
+            - name: KAFKA_ZOOKEEPER_CONNECT
+              value: zookeeper-service:2181

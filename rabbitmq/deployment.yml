@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq-deployment
+  labels:
+    app: rabbitmq-deployment
+spec:
+  # Deployment Spec
+  selector:
+    # Match mapping pod's label
+    matchLabels:
+      app: rabbitmq-service
+  replicas: 2
+  # Pod Spec
+  template:
+    metadata:
+      name: rabbitmq-service
+      # Set pod's label
+      labels:
+        app: rabbitmq-service
+    spec:
+      containers:
+        - name: rabbitmq-service
+          image: rabbitmq:management
+          ports:
+            - containerPort: 15672
+            - containerPort: 5672
+            - containerPort: 15671
+            - containerPort: 5671
+            - containerPort: 4369
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: guest
+            - name: RABBITMQ_DEFAULT_PASS
+              value: guest
+
