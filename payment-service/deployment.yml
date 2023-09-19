@@ -10,7 +10,7 @@ spec:
     # Match mapping pod's label
     matchLabels:
       app: payment-service
-  replicas: 2
+  replicas: 1
   # Pod Spec
   template:
     metadata:
