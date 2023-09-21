@@ -3,21 +3,30 @@ kind: Deployment
 metadata:
   name: rabbitmq-deployment
   labels:
-    app: rabbitmq-deployment
+    app: rabbitmq-service
+    profile: dev
 spec:
   # Deployment Spec
   selector:
     # Match mapping pod's label
     matchLabels:
       app: rabbitmq-service
+      profile: dev
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   replicas: 1
   # Pod Spec
   template:
     metadata:
-      name: rabbitmq-service
+      name: rabbitmq-pod
       # Set pod's label
       labels:
         app: rabbitmq-service
+        profile: dev
     spec:
       containers:
         - name: rabbitmq-service

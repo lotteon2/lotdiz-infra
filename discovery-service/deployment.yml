@@ -3,21 +3,30 @@ kind: Deployment
 metadata:
   name: discovery-deployment
   labels:
-    app: discovery-deployment
+    app: discovery-service
+    profile: dev
 spec:
   # Deployment Spec
   selector:
     # Match mapping pod's label
     matchLabels:
       app: discovery-service
+      profile: dev
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   replicas: 1
   # Pod Spec
   template:
     metadata:
-      name: discovery-service
+      name: discovery-pod
       # Set pod's label
       labels:
         app: discovery-service
+        profile: dev
     spec:
       containers:
         - name: discovery-service

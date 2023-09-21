@@ -9,3 +9,4 @@ spec:
       port: 8083
   selector:
     app: member-service
+    profile: dev

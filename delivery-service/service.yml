@@ -9,3 +9,4 @@ spec:
       port: 8081
   selector:
     app: delivery-service
+    profile: dev

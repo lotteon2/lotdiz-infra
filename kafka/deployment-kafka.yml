@@ -3,21 +3,30 @@ kind: Deployment
 metadata:
   name: kafka-deployment
   labels:
-    app: kafka-deployment
+    app: kafka-service
+    profile: dev
 spec:
   # Deployment Spec
   selector:
     # Match mapping pod's label
     matchLabels:
       app: kafka-service
+      profile: dev
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   replicas: 1
   # Pod Spec
   template:
     metadata:
-      name: kafka-service
+      name: kafka-pod
       # Set pod's label
       labels:
         app: kafka-service
+        profile: dev
     spec:
       containers:
         - name: kafka

@@ -9,3 +9,4 @@ spec:
       port: 8082
   selector:
     app: funding-service
+    profile: dev

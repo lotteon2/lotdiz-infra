@@ -9,3 +9,4 @@ spec:
       port: 8086
   selector:
     app: project-service
+    profile: dev

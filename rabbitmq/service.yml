@@ -13,3 +13,4 @@ spec:
       port: 15672
   selector:
     app: rabbitmq-service
+    profile: dev

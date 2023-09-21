@@ -9,3 +9,4 @@ spec:
       port: 8085
   selector:
     app: payment-service
+    profile: dev

@@ -10,3 +10,4 @@ spec:
       port: 9092
   selector:
     app: kafka-service
+    profile: dev

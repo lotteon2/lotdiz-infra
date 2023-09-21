@@ -10,3 +10,4 @@ spec:
       port: 2181
   selector:
     app: zookeeper-service
+    profile: dev

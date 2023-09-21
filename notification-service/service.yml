@@ -9,3 +9,4 @@ spec:
       port: 8084
   selector:
     app: notification-service
+    profile: dev

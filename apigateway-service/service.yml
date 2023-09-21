@@ -10,3 +10,4 @@ spec:
       nodePort: 30002
   selector:
     app: apigateway-service
+    profile: dev
