@@ -48,8 +48,12 @@ kubectl apply -f aws-observability-namespace.yaml
 kubectl apply -f aws-logging-cloudwatch-configmap.yaml
 ```
 
-6. 원하는 리소스 생성
+6. IAM OIDC ID 제공업체 생성
 
-```shell
-sh ./start.sh
-```
+[바로가기](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+
+7. AWS Load Balancer Controller 설치
+
+[바로가기](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/aws-load-balancer-controller.html)
+
+8. 원하는 리소스 생성
