@@ -14,6 +14,7 @@ kubectl delete -f ./apigateway-service/service.yml
 
 kubectl delete -f ./config-service/deployment.yml
 kubectl delete -f ./config-service/service.yml
+kubectl delete configmap lotdiz-config
 
 kubectl delete -f ./admin-service/deployment.yml
 kubectl delete -f ./admin-service/service.yml

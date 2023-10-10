@@ -38,6 +38,7 @@ while ! kubectl get services apigateway-service &> /dev/null; do
   sleep 5
 done
 
+kubectl create configmap lotdiz-config --from-env-file=./config-service/.env
 kubectl create -f ./config-service/deployment.yml
 kubectl create -f ./config-service/service.yml
 

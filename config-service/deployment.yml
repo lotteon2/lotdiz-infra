@@ -31,3 +31,6 @@ spec:
       containers:
         - name: config-service
           image: akak640/lotdiz-config-service
+          envFrom:
+            - configMapRef:
+                name: lotdiz-config
