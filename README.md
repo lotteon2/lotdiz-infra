@@ -57,3 +57,11 @@ kubectl apply -f aws-logging-cloudwatch-configmap.yaml
 [바로가기](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/aws-load-balancer-controller.html)
 
 8. 원하는 리소스 생성
+
+### ETC
+
+- kubeconfig docker-desktop으로 변경
+
+```shell
+kubectl config use-context docker-desktop
+```

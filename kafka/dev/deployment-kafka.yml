@@ -29,14 +29,19 @@ spec:
         profile: dev
     spec:
       containers:
-        - name: kafka
+        - name: kafka-service
           image: wurstmeister/kafka
           ports:
             - containerPort: 9092
           env:
             - name: KAFKA_ADVERTISED_HOST_NAME
-              value: localhost
+              value: kafka-service
             - name: KAFKA_CREATE_TOPICS
               value: "create-order:1:1,create-project:1:1,create-maker:1:1,auth-project:1:1,create-member:1:1"
             - name: KAFKA_ZOOKEEPER_CONNECT
               value: zookeeper-service:2181
+          resources:
+            requests:
+              memory: "1Gi"
+            limits:
+              memory: "2Gi"
