@@ -22,7 +22,7 @@ spec:
   # Pod Spec
   template:
     metadata:
-      name: apigateway-pod
+      name: apigateway-service
       # Set pod's label
       labels:
         app: apigateway-service
@@ -31,3 +31,6 @@ spec:
       containers:
         - name: apigateway-service
           image: akak640/lotdiz-apigateway-service
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always

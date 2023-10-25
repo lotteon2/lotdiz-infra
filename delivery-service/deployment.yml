@@ -31,6 +31,9 @@ spec:
       containers:
         - name: delivery-service
           image: akak640/lotdiz-delivery-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
         - name: mysql
           image: mysql:8.0.34
           env:
@@ -38,3 +41,10 @@ spec:
               value: "11111111"
             - name: MYSQL_DATABASE
               value: delivery-service
+          volumeMounts:
+            - name: delivery-initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: delivery-initdb
+          configMap:
+            name: delivery-initdb-config

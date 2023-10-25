@@ -31,6 +31,9 @@ spec:
       containers:
         - name: config-service
           image: akak640/lotdiz-config-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8888
           envFrom:
             - configMapRef:
                 name: lotdiz-config

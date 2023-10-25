@@ -22,7 +22,7 @@ spec:
   # Pod Spec
   template:
     metadata:
-      name: discovery-pod
+      name: discovery-service
       # Set pod's label
       labels:
         app: discovery-service
@@ -31,3 +31,6 @@ spec:
       containers:
         - name: discovery-service
           image: akak640/lotdiz-discovery-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8761

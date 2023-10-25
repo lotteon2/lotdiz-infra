@@ -31,6 +31,9 @@ spec:
       containers:
         - name: notification-service
           image: akak640/lotdiz-notification-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8084
         - name: mysql
           image: mysql:8.0.34
           env:
@@ -38,3 +41,10 @@ spec:
               value: "11111111"
             - name: MYSQL_DATABASE
               value: notification-service
+          volumeMounts:
+            - name: notification-initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: notification-initdb
+          configMap:
+            name: notification-initdb-config

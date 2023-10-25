@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: admin-initdb-config
+data:
+  initdb.sql: |
+      use admin-service;
+      CREATE TABLE maker_info
+      (
+          maker_id           BIGINT       NOT NULL,
+          maker_name         VARCHAR(255) NOT NULL,
+          maker_email        VARCHAR(255) NOT NULL,
+          maker_phone_number VARCHAR(255) NOT NULL,
+          maker_kakao_url    VARCHAR(255) NULL,
+          maker_home_url     VARCHAR(255) NULL,
+          maker_sns_url      VARCHAR(255) NULL,
+          created_at         datetime     NOT NULL,
+          CONSTRAINT pk_makerinfo PRIMARY KEY (maker_id)
+      );
+      CREATE TABLE member_info
+      (
+          member_id           BIGINT       NOT NULL,
+          member_role         VARCHAR(255) NULL,
+          member_email        VARCHAR(255) NULL,
+          member_name         VARCHAR(255) NULL,
+          member_phone_number VARCHAR(255) NULL,
+          created_at          datetime     NULL,
+          CONSTRAINT pk_memberinfo PRIMARY KEY (member_id)
+      );
+      CREATE TABLE project_info
+      (
+          project_id            BIGINT       NOT NULL,
+          project_name          VARCHAR(255) NOT NULL,
+          category_name         VARCHAR(255) NOT NULL,
+          maker_name            VARCHAR(255) NOT NULL,
+          project_due_date      datetime     NOT NULL,
+          project_is_authorized BIT(1)       NOT NULL,
+          created_at            datetime     NOT NULL,
+          CONSTRAINT pk_projectinfo PRIMARY KEY (project_id)
+      );

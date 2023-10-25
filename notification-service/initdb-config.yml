@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notification-initdb-config
+data:
+  initdb.sql: |
+      use notification-service;
+      CREATE TABLE notification
+      (
+          notification_id      BIGINT       NOT NULL,
+          created_at           datetime     NULL,
+          updated_at           datetime     NULL,
+          notification_title   VARCHAR(255) NOT NULL,
+          notification_content VARCHAR(255) NOT NULL,
+          CONSTRAINT pk_notification PRIMARY KEY (notification_id)
+      );
+      CREATE TABLE member_notification
+      (
+          created_at                  datetime         NULL,
+          updated_at                  datetime         NULL,
+          member_notification_is_read BIT(1) DEFAULT 0 NOT NULL,
+          member_id                   BIGINT           NOT NULL,
+          notification_id             BIGINT           NOT NULL,
+          CONSTRAINT pk_membernotification PRIMARY KEY (member_id, notification_id)
+      );
+
+      ALTER TABLE member_notification
+          ADD CONSTRAINT FK_MEMBERNOTIFICATION_ON_NOTIFICATION FOREIGN KEY (notification_id) REFERENCES notification (notification_id);

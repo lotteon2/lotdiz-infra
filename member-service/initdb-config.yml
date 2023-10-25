@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: member-initdb-config
+data:
+  initdb.sql: |
+      use member-service;
+      CREATE TABLE delivery_address
+      (
+          delivery_address_id                     BIGINT       NOT NULL,
+          created_at                              datetime     NULL,
+          updated_at                              datetime     NULL,
+          delivery_address_recipient_name         VARCHAR(255) NOT NULL,
+          delivery_address_recipient_phone_number VARCHAR(255) NOT NULL,
+          delivery_address_recipient_email        VARCHAR(255) NULL,
+          delivery_address_request                VARCHAR(255) NULL,
+          delivery_address_road_name              VARCHAR(255) NOT NULL,
+          delivery_address_detail                 VARCHAR(255) NOT NULL,
+          delivery_address_zip_code               VARCHAR(255) NOT NULL,
+          delivery_address_is_default             BIT(1)       NOT NULL,
+          member_id                               BIGINT       NOT NULL,
+          CONSTRAINT pk_deliveryaddress PRIMARY KEY (delivery_address_id)
+      );
+      
+      CREATE TABLE member
+      (
+          member_id                BIGINT AUTO_INCREMENT NOT NULL,
+          created_at               datetime              NULL,
+          updated_at               datetime              NULL,
+          member_role              VARCHAR(255)          NOT NULL,
+          member_email             VARCHAR(255)          NOT NULL,
+          member_password          VARCHAR(255)          NOT NULL,
+          member_name              VARCHAR(10)           NOT NULL,
+          member_phone_number      VARCHAR(255)          NOT NULL,
+          member_point             BIGINT                NOT NULL,
+          member_profile_image_url VARCHAR(255)          NOT NULL,
+          member_privacy_agreement BIT(1)                NOT NULL,
+          membership_id            BIGINT                NULL,
+          CONSTRAINT pk_member PRIMARY KEY (member_id)
+      );
+
+      ALTER TABLE member
+          ADD CONSTRAINT uc_member_member_email UNIQUE (member_email);
+
+      CREATE TABLE likes
+      (
+          created_at datetime NULL,
+          member_id  BIGINT   NOT NULL,
+          project_id BIGINT   NOT NULL,
+          CONSTRAINT pk_likes PRIMARY KEY (member_id, project_id)
+      );
+
+      ALTER TABLE likes
+          ADD CONSTRAINT FK_LIKES_ON_MEMBER FOREIGN KEY (member_id) REFERENCES member (member_id);
+      
+      CREATE TABLE membership
+      (
+          membership_id                      BIGINT AUTO_INCREMENT NOT NULL,
+          membership_subscription_created_at datetime              NULL,
+          membership_subscription_expired_at datetime              NULL,
+          membership_status                  BIT(1)                NULL,
+          membership_policy_id               BIGINT                NOT NULL,
+          membership_subscription_id         BIGINT                NULL,
+          CONSTRAINT pk_membership PRIMARY KEY (membership_id)
+      );
+
+      CREATE TABLE membership_policy
+      (
+          membership_policy_id                      BIGINT AUTO_INCREMENT NOT NULL,
+          created_at                                datetime              NULL,
+          updated_at                                datetime              NULL,
+          membership_policy_grade                   VARCHAR(255)          NOT NULL,
+          membership_policy_subscription_fee        BIGINT                NOT NULL,
+          membership_policy_discount_rate           INT                   NOT NULL,
+          membership_policy_point_accumulation_rate INT                   NOT NULL,
+          CONSTRAINT pk_membershippolicy PRIMARY KEY (membership_policy_id)
+      );
+
+      CREATE TABLE membership_subscription
+      (
+          membership_subscription_id BIGINT   NOT NULL,
+          created_at                 datetime NULL,
+          updated_at                 datetime NULL,
+          membership_id              BIGINT   NOT NULL,
+          CONSTRAINT pk_membershipsubscription PRIMARY KEY (membership_subscription_id)
+      );

@@ -47,23 +47,30 @@ while ! kubectl get services apigateway-service &> /dev/null; do
   sleep 5
 done
 
+kubectl create -f ./admin-service/initdb-config.yml
 kubectl create -f ./admin-service/deployment.yml
 kubectl create -f ./admin-service/service.yml
 
+kubectl create -f ./funding-service/initdb-config.yml
 kubectl create -f ./funding-service/deployment.yml
 kubectl create -f ./funding-service/service.yml
 
+kubectl create -f ./member-service/initdb-config.yml
 kubectl create -f ./member-service/deployment.yml
 kubectl create -f ./member-service/service.yml
 
+kubectl create -f ./notification-service/initdb-config.yml
 kubectl create -f ./notification-service/deployment.yml
 kubectl create -f ./notification-service/service.yml
 
+kubectl create -f ./delivery-service/initdb-config.yml
 kubectl create -f ./delivery-service/deployment.yml
 kubectl create -f ./delivery-service/service.yml
 
+kubectl create -f ./payment-service/initdb-config.yml
 kubectl create -f ./payment-service/deployment.yml
 kubectl create -f ./payment-service/service.yml
 
+kubectl create -f ./project-service/initdb-config.yml
 kubectl create -f ./project-service/deployment.yml
 kubectl create -f ./project-service/service.yml

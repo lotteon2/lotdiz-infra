@@ -31,6 +31,9 @@ spec:
       containers:
         - name: payment-service
           image: akak640/lotdiz-payment-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
         - name: mysql
           image: mysql:8.0.34
           env:
@@ -38,3 +41,10 @@ spec:
               value: "11111111"
             - name: MYSQL_DATABASE
               value: payment-service
+          volumeMounts:
+            - name: payment-initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: payment-initdb
+          configMap:
+            name: payment-initdb-config

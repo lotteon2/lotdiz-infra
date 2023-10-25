@@ -32,7 +32,7 @@ aws configure
 
 3. EKS Cluster 사용을 위한 kubeconfig 파일 업데이트
 
-```
+```shell
 aws eks update-kubeconfig --region <REGION_NAME> --name <CLUSTER_NAME>
 ```
 

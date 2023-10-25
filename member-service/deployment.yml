@@ -31,6 +31,9 @@ spec:
       containers:
         - name: member-service
           image: akak640/lotdiz-member-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8083
         - name: mysql
           image: mysql:8.0.34
           env:
@@ -38,3 +41,10 @@ spec:
               value: "11111111"
             - name: MYSQL_DATABASE
               value: member-service
+          volumeMounts:
+            - name: member-initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: member-initdb
+          configMap:
+            name: member-initdb-config

@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: funding-initdb-config
+data:
+  initdb.sql: |
+      use funding-service;
+      CREATE TABLE funding
+      (
+          funding_id                         BIGINT AUTO_INCREMENT NOT NULL,
+          created_at                         datetime              NULL,
+          updated_at                         datetime              NULL,
+          member_id                          BIGINT                NOT NULL,
+          project_id                         BIGINT                NOT NULL,
+          funding_supporter_email            VARCHAR(255)          NOT NULL,
+          funding_status                     VARCHAR(255)          NOT NULL,
+          funding_total_amount               BIGINT                NOT NULL,
+          funding_is_refundable              BIT(1)                NOT NULL,
+          funding_support_amount             BIGINT                NOT NULL,
+          funding_lotdeal_discount_amount    BIGINT                NOT NULL,
+          funding_membership_discount_amount BIGINT                NOT NULL,
+          funding_used_point                 BIGINT                NOT NULL,
+          funding_privacy_agreement          BIT(1)                NOT NULL,
+          CONSTRAINT pk_funding PRIMARY KEY (funding_id)
+      );
+      CREATE TABLE product_funding
+      (
+          product_funding_id       BIGINT AUTO_INCREMENT NOT NULL,
+          created_at               datetime              NULL,
+          updated_at               datetime              NULL,
+          product_id               BIGINT                NOT NULL,
+          funding_id               BIGINT                NULL,
+          product_funding_price    BIGINT                NULL,
+          product_funding_quantity BIGINT                NULL,
+          CONSTRAINT pk_product_funding PRIMARY KEY (product_funding_id)
+      );
+
+      ALTER TABLE product_funding
+          ADD CONSTRAINT FK_PRODUCT_FUNDING_ON_FUNDING FOREIGN KEY (funding_id) REFERENCES funding (funding_id);
+      CREATE TABLE supporter_with_us
+      (
+          supporter_with_us_id               BIGINT AUTO_INCREMENT NOT NULL,
+          created_at                         datetime              NULL,
+          updated_at                         datetime              NULL,
+          funding_id                         BIGINT                NULL,
+          supporter_with_us_is_name_public   BIT(1)                NOT NULL,
+          supporter_with_us_is_amount_public BIT(1)                NOT NULL,
+          CONSTRAINT pk_supporter_with_us PRIMARY KEY (supporter_with_us_id)
+      );
+
+      ALTER TABLE supporter_with_us
+          ADD CONSTRAINT FK_SUPPORTER_WITH_US_ON_FUNDING FOREIGN KEY (funding_id) REFERENCES funding (funding_id);
