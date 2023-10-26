@@ -18,15 +18,11 @@ data:
         member_point             BIGINT                NOT NULL,
         member_profile_image_url VARCHAR(255)          NOT NULL,
         member_privacy_agreement BIT(1)                NOT NULL,
-        membership_id            BIGINT                NULL,
         CONSTRAINT pk_member PRIMARY KEY (member_id)
     );
 
     ALTER TABLE member
         ADD CONSTRAINT uc_member_member_email UNIQUE (member_email);
-
-    ALTER TABLE member
-        ADD CONSTRAINT FK_MEMBER_ON_MEMBERSHIP FOREIGN KEY (membership_id) REFERENCES membership (membership_id);
 
     CREATE TABLE likes
     (

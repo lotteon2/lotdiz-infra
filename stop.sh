@@ -43,3 +43,5 @@ kubectl delete -f ./payment-service/initdb-config.yml
 kubectl delete -f ./project-service/deployment.yml
 kubectl delete -f ./project-service/service.yml
 kubectl delete -f ./project-service/initdb-config.yml
+
+kubectl delete -f ./mysql-config.yml

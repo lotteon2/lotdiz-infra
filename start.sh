@@ -47,6 +47,8 @@ while ! kubectl get services apigateway-service &> /dev/null; do
   sleep 5
 done
 
+kubectl create -f ./mysql-config.yml
+
 kubectl create -f ./admin-service/initdb-config.yml
 kubectl create -f ./admin-service/deployment.yml
 kubectl create -f ./admin-service/service.yml

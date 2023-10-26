@@ -44,7 +44,12 @@ spec:
           volumeMounts:
             - name: funding-initdb
               mountPath: /docker-entrypoint-initdb.d
+            - name: mysql-config
+              mountPath: /etc/mysql/conf.d
       volumes:
         - name: funding-initdb
           configMap:
             name: funding-initdb-config
+        - name: mysql-config
+          configMap:
+            name: mysql-config

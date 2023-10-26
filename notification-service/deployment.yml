@@ -44,7 +44,12 @@ spec:
           volumeMounts:
             - name: notification-initdb
               mountPath: /docker-entrypoint-initdb.d
+            - name: mysql-config
+              mountPath: /etc/mysql/conf.d
       volumes:
         - name: notification-initdb
           configMap:
             name: notification-initdb-config
+        - name: mysql-config
+          configMap:
+            name: mysql-config
