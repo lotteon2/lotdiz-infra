@@ -5,4 +5,60 @@ metadata:
 data:
   initdb.sql: |
       use payment-service;
+      CREATE TABLE kakaopay
+      (
+          kakaopay_id               BIGINT       NOT NULL,
+          created_at                datetime     NULL,
+          updated_at                datetime     NULL,
+          kakaopay_partner_order_id VARCHAR(255) NOT NULL,
+          kakaopay_partner_user_id  VARCHAR(255) NOT NULL,
+          kakaopay_cid              VARCHAR(255) NOT NULL,
+          kakaopay_tid              VARCHAR(255) NOT NULL,
+          CONSTRAINT pk_kakaopay PRIMARY KEY (kakaopay_id)
+      );
+      
+      CREATE TABLE funding_payments
+      (
+          funding_payments_unique_id     BIGINT AUTO_INCREMENT NOT NULL,
+          created_at                     datetime              NULL,
+          updated_at                     datetime              NULL,
+          funding_id                     BIGINT                NOT NULL,
+          kakaopay_id                    BIGINT                NULL,
+          funding_payments_actual_amount BIGINT                NOT NULL,
+          funding_payments_type          VARCHAR(255)          NOT NULL,
+          funding_payments_status        VARCHAR(255)          NOT NULL,
+          CONSTRAINT pk_funding_payments PRIMARY KEY (funding_payments_unique_id)
+      );
+
+      ALTER TABLE funding_payments
+          ADD CONSTRAINT FK_FUNDING_PAYMENTS_ON_KAKAOPAY FOREIGN KEY (kakaopay_id) REFERENCES kakaopay (kakaopay_id);
+
+      CREATE TABLE membership_subscription
+      (
+          membership_subscription_id BIGINT AUTO_INCREMENT NOT NULL,
+          created_at                 datetime              NULL,
+          updated_at                 datetime              NULL,
+          membership_id              BIGINT                NOT NULL,
+          CONSTRAINT pk_membership_subscription PRIMARY KEY (membership_subscription_id)
+      );
+
+      CREATE TABLE membership_subscription_payments
+      (
+          membership_subscription_payments_unique_id     BIGINT AUTO_INCREMENT NOT NULL,
+          created_at                                     datetime              NULL,
+          updated_at                                     datetime              NULL,
+          membership_subscription_payments_actual_amount INT                   NOT NULL,
+          membership_subscription_payments_type          VARCHAR(255)          NOT NULL,
+          membership_subscription_payments_status        VARCHAR(255)          NOT NULL,
+          membership_subscription_id                     BIGINT                NOT NULL,
+          kakaopay_id                                    BIGINT                NULL,
+          CONSTRAINT pk_membership_subscription_payments PRIMARY KEY (membership_subscription_payments_unique_id)
+      );
+
+      ALTER TABLE membership_subscription_payments
+          ADD CONSTRAINT FK_MEMBERSHIP_SUBSCRIPTION_PAYMENTS_ON_KAKAOPAY FOREIGN KEY (kakaopay_id) REFERENCES kakaopay (kakaopay_id);
+
+      ALTER TABLE membership_subscription_payments
+          ADD CONSTRAINT FK_MEMBERSHIP_SUBSCRIPTION_PAYMENTS_ON_MEMBERSHIP_SUBSCRIPTION FOREIGN KEY (membership_subscription_id) REFERENCES membership_subscription (membership_subscription_id);
+
       
