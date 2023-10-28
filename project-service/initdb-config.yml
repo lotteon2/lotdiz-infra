@@ -118,11 +118,13 @@ data:
     ALTER TABLE support_signature
         ADD CONSTRAINT FK_SUPPORT_SIGNATURE_ON_PROJECT FOREIGN KEY (project_id) REFERENCES project (project_id);
     
+    insert into category(category_name) values ('테크');
     insert into category(category_name) values ('패션');
     insert into category(category_name) values ('음식');
     insert into category(category_name) values ('가전');
     insert into category(category_name) values ('도서');
     insert into category(category_name) values ('홈리빙');
+    insert into category(category_name) values ('레저');
 
     insert into maker (created_at, updated_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url, member_id) values ('2023-12-11T23:59:59', '2023-12-11T23:59:59', 'cso6005@nvaer.com', '/home', '/kakao', '최소영', '01033344455','/sns', 1);
     insert into maker (created_at, updated_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url, member_id) values ('2023-12-11T23:59:59', '2023-12-11T23:59:59', 'cso6005@nvaer.com', '/home', '/kakao', '이채민', '01033344455','/sns', 2);
@@ -206,5 +208,5 @@ data:
 
     insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-lotdeal.png', '/lotdeal');
     insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-membership.png', '/membership');
-    insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-maker.png', '/maker');
+    insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-maker.png', '/projects/maker');
     insert into banner(banner_image_url, banner_url) values ( '/banner-img/banner-camping.png', '/special-exhibition/camping');

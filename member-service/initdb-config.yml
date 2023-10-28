@@ -81,3 +81,6 @@ data:
 
     ALTER TABLE membership
         ADD CONSTRAINT FK_MEMBERSHIP_ON_MEMBER FOREIGN KEY (member_id) REFERENCES member (member_id);
+
+    ALTER TABLE membership
+        ADD CONSTRAINT FK_MEMBERSHIP_ON_MEMBERSHIP_POLICY FOREIGN KEY (membership_policy_id) REFERENCES membership_policy (membership_policy_id);
