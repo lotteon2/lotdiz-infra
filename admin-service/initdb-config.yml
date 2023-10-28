@@ -4,37 +4,66 @@ metadata:
   name: admin-initdb-config
 data:
   initdb.sql: |
-      use admin-service;
-      CREATE TABLE maker_info
-      (
-          maker_id           BIGINT       NOT NULL,
-          maker_name         VARCHAR(255) NOT NULL,
-          maker_email        VARCHAR(255) NOT NULL,
-          maker_phone_number VARCHAR(255) NOT NULL,
-          maker_kakao_url    VARCHAR(255) NULL,
-          maker_home_url     VARCHAR(255) NULL,
-          maker_sns_url      VARCHAR(255) NULL,
-          created_at         datetime     NOT NULL,
-          CONSTRAINT pk_makerinfo PRIMARY KEY (maker_id)
-      );
-      CREATE TABLE member_info
-      (
-          member_id           BIGINT       NOT NULL,
-          member_role         VARCHAR(255) NULL,
-          member_email        VARCHAR(255) NULL,
-          member_name         VARCHAR(255) NULL,
-          member_phone_number VARCHAR(255) NULL,
-          created_at          datetime     NULL,
-          CONSTRAINT pk_memberinfo PRIMARY KEY (member_id)
-      );
-      CREATE TABLE project_info
-      (
-          project_id            BIGINT       NOT NULL,
-          project_name          VARCHAR(255) NOT NULL,
-          category_name         VARCHAR(255) NOT NULL,
-          maker_name            VARCHAR(255) NOT NULL,
-          project_due_date      datetime     NOT NULL,
-          project_is_authorized BIT(1)       NOT NULL,
-          created_at            datetime     NOT NULL,
-          CONSTRAINT pk_projectinfo PRIMARY KEY (project_id)
-      );
+    use admin-service;
+    CREATE TABLE maker_info
+    (
+        maker_id           BIGINT       NOT NULL,
+        maker_name         VARCHAR(255) NOT NULL,
+        maker_email        VARCHAR(255) NOT NULL,
+        maker_phone_number VARCHAR(255) NOT NULL,
+        maker_kakao_url    VARCHAR(255) NULL,
+        maker_home_url     VARCHAR(255) NULL,
+        maker_sns_url      VARCHAR(255) NULL,
+        created_at         datetime     NOT NULL,
+        CONSTRAINT pk_makerinfo PRIMARY KEY (maker_id)
+    );
+    CREATE TABLE member_info
+    (
+        member_id           BIGINT       NOT NULL,
+        member_role         VARCHAR(255) NULL,
+        member_email        VARCHAR(255) NULL,
+        member_name         VARCHAR(255) NULL,
+        member_phone_number VARCHAR(255) NULL,
+        created_at          datetime     NULL,
+        CONSTRAINT pk_memberinfo PRIMARY KEY (member_id)
+    );
+    CREATE TABLE project_info
+    (
+        project_id            BIGINT       NOT NULL,
+        project_name          VARCHAR(255) NOT NULL,
+        category_name         VARCHAR(255) NOT NULL,
+        maker_name            VARCHAR(255) NOT NULL,
+        project_due_date      datetime     NOT NULL,
+        project_is_authorized BIT(1)       NOT NULL,
+        created_at            datetime     NOT NULL,
+        CONSTRAINT pk_projectinfo PRIMARY KEY (project_id)
+    );
+
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (1, 'ROLE_USER', 'cso1@nvaer.com', '최소영', '01033334444', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (2, 'ROLE_USER', 'cso2@nvaer.com', '이채민', '01011112222', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (3, 'ROLE_USER', 'cso3@nvaer.com', '이상원', '01055556666', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (4, 'ROLE_USER', 'cso4@nvaer.com', '이진우', '01033376666', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (5, 'ROLE_USER', 'cso5@nvaer.com', '이우엽', '01033344333', now());
+
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (1, '2023-01-11T23:59:59', 'cso1@nvaer.com', '/home1', '/kakao1', '최소영', '01033334444','/sns1');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (2, '2023-01-11T23:59:59', 'cso2@nvaer.com', '/home2', '/kakao2', '이채민', '01011112222','/sns2');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (3, '2023-01-11T23:59:59', 'cso3@nvaer.com', '/home3', '/kakao3', '이상원', '01055556666','/sns3');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (4, '2023-01-11T23:59:59', 'cso4@nvaer.com', '/home4', '/kakao4', '이진우', '01033376666','/sns4');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (5, '2023-01-11T23:59:59', 'cso5@nvaer.com', '/home5', '/kakao5', '이우엽', '01033344333','/sns5');
+
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-02-11T11:59:59', 1, '소라색 셔츠 판매', '패션', '최소영', '2023-03-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-02-11T23:59:59', 2, '파란색 셔츠 판매', '패션', '이채민', '2023-03-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-21T23:59:59', 3, '와인색 셔츠 판매', '패션', '이상원', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-22T23:59:59', 4, '반바지 판매', '패션', '이진우', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-23T23:59:59', 5, '맛있는 dummy', '음식', '이우엽', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-24T23:59:59', 6, '맛있는 망고', '음식', '최소영', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-25T23:59:59', 7, '맛있는 수박', '음식', '이채민', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-26T23:59:59', 8, '애플 맥북 프로', '테크', '이상원', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-27T23:59:59', 9, '애플 아이폰', '테크', '최소영', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-09-28T23:59:59', 10, '튼튼 냉장고', '가전', '최소영', '2023-11-01T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-01T09:59:59', 11, '캠핑 음식', '음식', '이우엽', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-01T10:59:59', 12, '캠핑 화로 불멍', '홈리빙', '이진우', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 13, '캠핑 옷', '패션', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 14, '이펙티브 자바', '도서', '이상원', '2023-12-11T23:59:59', false);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 15, '삼성 신상 티비', '가전', '이상원', '2023-12-11T23:59:59', false);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 16, '애플 아이맥', '가전', '이상원', '2023-12-11T23:59:59', false);
