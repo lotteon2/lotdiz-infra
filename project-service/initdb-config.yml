@@ -204,7 +204,7 @@ data:
     insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-21T23:59:59','2023-09-21T23:59:59', 20, '옷 좋아요!!', '색이 더더 진한 와인색 셔츠', 120000, 150, 3);
     insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-21T23:59:59','2023-09-21T23:59:59', 0, '옷 좋아요!!', '색이 더더더 진한 와인색 셔츠', 130000, 150, 3);
     insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-21T23:59:59','2023-09-21T23:59:59', 40, '옷 좋아요!!', '색이 더더더더 진한 와인색 셔츠', 150000, 150, 3);
-    insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-21T23:59:59','2023-09-21T23:59:59', 60, '옷 좋아요!!', '색이 더더더더더 진한 와인색 셔츠' 100000, 150, 3);
+    insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-21T23:59:59','2023-09-21T23:59:59', 60, '옷 좋아요!!', '색이 더더더더더 진한 와인색 셔츠', 100000, 150, 3);
 
     insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-22T23:59:59','2023-09-22T23:59:59', 60, '핏이 아주아주 좋아요!!', '색이 이쁜 반바지', 100000, 150, 4);
     insert into product(created_at, updated_at, product_current_stock_quantity, product_description, product_name, product_price, product_registered_stock_quantity, project_id) values ('2023-09-22T23:59:59','2023-09-22T23:59:59', 60, '핏이 아주아주 좋아요!!', '핏이 이쁜 반바지', 100000, 150, 4);
@@ -571,7 +571,7 @@ data:
     insert into project_image(created_at, updated_at, project_image_is_thumbnail, project_image_url, project_id) values ('2023-10-26T11:59:59', '2023-10-26T11:59:59', false, '/project-img/dummy2.png', 45);
 
     insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-lotdeal.png', '/lotdeal');
-    insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-membership.png', '/membership');
+    insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-membership.png', '/member/membership-honors');
     insert into banner(banner_image_url, banner_url) values ('/banner-img/banner-maker.png', '/projects/maker');
     insert into banner(banner_image_url, banner_url) values ( '/banner-img/banner-camping.png', '/special-exhibition/camping');
 
