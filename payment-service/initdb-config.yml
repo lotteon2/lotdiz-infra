@@ -7,7 +7,7 @@ data:
       use payment-service;
       CREATE TABLE kakaopay
       (
-          kakaopay_id               BIGINT       NOT NULL,
+          kakaopay_id               BIGINT AUTO_INCREMENT NOT NULL,
           created_at                datetime     NULL,
           updated_at                datetime     NULL,
           kakaopay_partner_order_id VARCHAR(255) NOT NULL,

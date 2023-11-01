@@ -39,17 +39,17 @@ data:
         CONSTRAINT pk_projectinfo PRIMARY KEY (project_id)
     );
 
-    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (1, 'ROLE_USER', 'cso1@nvaer.com', '최소영', '01033334444', now());
-    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (2, 'ROLE_USER', 'cso2@nvaer.com', '이채민', '01011112222', now());
-    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (3, 'ROLE_USER', 'cso3@nvaer.com', '이상원', '01055556666', now());
-    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (4, 'ROLE_USER', 'cso4@nvaer.com', '이진우', '01033376666', now());
-    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (5, 'ROLE_USER', 'cso5@nvaer.com', '이우엽', '01033344333', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (1, 'ROLE_USER', 'cso1@naver.com', '최소영', '01033334444', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (2, 'ROLE_USER', 'cso2@naver.com', '이채민', '01011112222', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (3, 'ROLE_USER', 'cso3@naver.com', '이상원', '01055556666', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (4, 'ROLE_USER', 'cso4@naver.com', '이진우', '01033376666', now());
+    insert into member_info (member_id, member_role, member_email, member_name, member_phone_number, created_at) values (5, 'ROLE_USER', 'cso5@naver.com', '이우엽', '01033344333', now());
 
-    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (1, '2023-01-11T23:59:59', 'cso1@nvaer.com', '/home1', '/kakao1', '최소영', '01033334444','/sns1');
-    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (2, '2023-01-11T23:59:59', 'cso2@nvaer.com', '/home2', '/kakao2', '이채민', '01011112222','/sns2');
-    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (3, '2023-01-11T23:59:59', 'cso3@nvaer.com', '/home3', '/kakao3', '이상원', '01055556666','/sns3');
-    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (4, '2023-01-11T23:59:59', 'cso4@nvaer.com', '/home4', '/kakao4', '이진우', '01033376666','/sns4');
-    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (5, '2023-01-11T23:59:59', 'cso5@nvaer.com', '/home5', '/kakao5', '이우엽', '01033344333','/sns5');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (1, '2023-01-11T23:59:59', 'cso1@naver.com', '/home1', '/kakao1', '최소영', '01033334444','/sns1');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (2, '2023-01-11T23:59:59', 'cso2@naver.com', '/home2', '/kakao2', '이채민', '01011112222','/sns2');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (3, '2023-01-11T23:59:59', 'cso3@naver.com', '/home3', '/kakao3', '이상원', '01055556666','/sns3');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (4, '2023-01-11T23:59:59', 'cso4@naver.com', '/home4', '/kakao4', '이진우', '01033376666','/sns4');
+    insert into maker_info (maker_id, created_at, maker_email, maker_home_url, maker_kakao_url, maker_name, maker_phone_number, maker_sns_url) values (5, '2023-01-11T23:59:59', 'cso5@naver.com', '/home5', '/kakao5', '이우엽', '01033344333','/sns5');
 
     insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-02-11T11:59:59', 1, '소라색 셔츠 판매', '패션', '최소영', '2023-03-11T23:59:59', true);
     insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-02-11T23:59:59', 2, '파란색 셔츠 판매', '패션', '이채민', '2023-03-11T23:59:59', true);
@@ -66,4 +66,33 @@ data:
     insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 13, '캠핑 옷', '패션', '이상원', '2023-12-11T23:59:59', true);
     insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 14, '이펙티브 자바', '도서', '이상원', '2023-12-11T23:59:59', false);
     insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 15, '삼성 신상 티비', '가전', '이상원', '2023-12-11T23:59:59', false);
-    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 16, '애플 아이맥', '가전', '이상원', '2023-12-11T23:59:59', false);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 16, '애플 아이맥', '테크', '이상원', '2023-12-11T23:59:59', false);
+
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 17, '엘지 스타일러', '가전', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 18, '엘지 건조기', '가전', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 19, '삼성 건조기', '가전', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 20, '어린 왕자', '도서', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 21, '이기적 유전자', '도서', '이상원', '2023-12-11T23:59:59', true);
+
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 22, '닭발', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 23, '우럭회', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 24, '피자피자펴자', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 25, '우리동네치킨치킨', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 26, '곱창구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 27, '막창구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 28, '족발', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 29, '보쌈', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 30, '냉동만두', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 31, '냉동햄버거', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 32, '삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 33, '통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 34, '대박삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 35, '리얼삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 36, '완전삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 37, '짱맛삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 38, '통통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 39, '통통통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 40, '통통통통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 41, '통통통통통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 42, '통통통통통통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
+    insert into project_info (created_at, project_id, project_name, category_name, maker_name, project_due_date, project_is_authorized) values ('2023-10-26T11:59:59', 43, '통통통통통통통삼겹살구이', '음식', '이상원', '2023-12-11T23:59:59', true);
