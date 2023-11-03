@@ -14,6 +14,20 @@ sh ./start.sh
 sh ./stop.sh
 ```
 
+### APIGATEWAY port forwarding
+
+1. apigateway pod을 찾는다.
+
+```shell
+kubectl get pods
+```
+
+2. pod을 포트포워딩
+
+```shell
+kubectl port-forward [PORT_NAME] 8000:8000
+```
+
 ## 운영 환경
 
 ### Fargate EKS Cluster 구축
